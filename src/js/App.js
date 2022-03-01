@@ -7,7 +7,7 @@ import ChatView from "./views/Chat";
 import Navbar from "./components/Navbar";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
-import configureStore from "../../store";
+import configureStore from "./store";
 
 const store = configureStore();
 export default function App() {

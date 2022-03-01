@@ -3,11 +3,12 @@ import { fetchChats } from "../action/chats";
 import JoinedChatsList from "../components/JoinedChatsList";
 import AvailableChatsList from "../components/AvailableChatsList";
 import ViewTitle from "../components/shared/ViewTitle";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 function Home() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchChats());
+    const chats = useSelector(({ chats }) => chats.items);
   }, [dispatch]);
   return (
     <div className="content-wrapper">
