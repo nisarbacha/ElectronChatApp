@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 function Home() {
   const dispatch = useDispatch();
   const chats = useSelector(({ chats }) => chats.items);
-  
+
   useEffect(() => {
     dispatch(fetchChats());
   }, [dispatch]);
@@ -16,12 +16,12 @@ function Home() {
     <div className="content-wrapper">
       <div className="row no-gutters fh">
         <div className="col-3 fh">
-          <JoinedChatsList />
+          <JoinedChatsList chats={chats} />
         </div>
         <div className="col-9 fh">
           <ViewTitle text="Choose your channel" />
           <div className="container-fluid">
-            <AvailableChatsList />
+            <AvailableChatsList chats={chats} />
           </div>
         </div>
       </div>

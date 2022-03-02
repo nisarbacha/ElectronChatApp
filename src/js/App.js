@@ -1,8 +1,7 @@
 import React from "react";
 import HomeView from "./views/Home";
-import LoginView from "./views/login";
+import WelcomeView from "./views/Welcome";
 import SettingView from "./views/Setting";
-import RegisterView from "./views/Register";
 import ChatView from "./views/Chat";
 import Navbar from "./components/Navbar";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
@@ -17,10 +16,10 @@ export default function App() {
         <Router>
           <Navbar />
           <Routes>
-            <Route path="/register" element={<RegisterView />} />
-            <Route path="/login" element={<LoginView />} />
+            {/* <Route path="/register" element={<RegisterView />} /> */}
+            <Route path="/" index element={<WelcomeView />} />
+            <Route path="/home" index element={<HomeView />} />
             <Route path="/settings" element={<SettingView />} />
-            <Route path="/" index element={<HomeView />} />
             <Route path="/chat/:id" element={<ChatView />} />
           </Routes>
         </Router>

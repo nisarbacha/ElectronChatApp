@@ -13,27 +13,24 @@ function Navbar() {
           >
             GoBack
           </button>
+          <Link
+            to="/settings"
+            className="btn btn-sm btn-outline-success ml-2"
+          >
+            Settings
+          </Link>
         </div>
 
         <div className="chat-navbar-inner-right">
           <span className="logged-in-user">Hi User</span>
-          <Link to="/logout" className="btn btn-sm btn-outline-danger ml-2">
+          {/* <Link to="/logout" className="btn btn-sm btn-outline-danger ml-2">
             Logout
-          </Link>
-          <Link to="/login" className="btn btn-sm btn-outline-success ml-2">
+          </Link> */}
+          <Link to="/" className="btn btn-sm btn-outline-success ml-2">
             Login
           </Link>
-          <Link to="/register" className="btn btn-sm btn-outline-success ml-2">
-            Register
-          </Link>
-          <div className="chat-navbar-inner-left">
-            <Link
-              to="/settings"
-              className="btn btn-sm btn-outline-success ml-2"
-            >
-              Settings
-            </Link>
-          </div>
+
+
         </div>
       </nav>
     </div>
