@@ -1,11 +1,22 @@
 import React, { useState } from 'react'
 import LoginForm from '../components/LoginForm'
 import RegisterForm from '../components/RegisterForm'
-
+import { useSelector } from 'react-redux'
+import { Navigate } from 'react-router-dom'
+import Loader from '../components/shared/loader'
 const Welcome = () => {
     const [isLoginView, setIsLoginView] = useState(true);
+    const user = useSelector(({ auth }) => auth.user);
+    const isChecking = useSelector(({ auth }) => auth.isChecking);
     const optInText = isLoginView ? ["Need an account?", "Register"] : ["Already registered ?", "Login"]
 
+    console.log(isChecking)
+    if (isChecking) {
+        return <Loader />
+    }
+    if (user) {
+        return <Navigate to="/home" />
+    }
     return (
         <div className="centered-view">
             <div className="centered-container">

@@ -1,9 +1,12 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-
+import { loginUser } from '../action/auth';
+import { useDispatch, useSelector } from 'react-redux';
 const LoginForm = () => {
+  const dispatch = useDispatch();
+  const error = useSelector(({ auth }) => auth.login.error)
   const onSubmit = data => {
-    alert(JSON.stringify(data));
+    dispatch(loginUser(data));
   }
   const { register, handleSubmit } = useForm();
   return (
@@ -18,6 +21,7 @@ const LoginForm = () => {
             type="email"
             className="form-control"
             id="email"
+            // value="nisar@gmail.com"
             name="email"
             aria-describedby="emailHelp" />
           <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
@@ -27,11 +31,12 @@ const LoginForm = () => {
           <input
             {...register('password')}
             type="password"
+            // value="123456"
             name="password"
             className="form-control"
             id="password" />
         </div>
-        {false && <div className="alert alert-danger small">Some error</div>}
+        {error && <div className="alert alert-danger small">{error.message}</div>}
         <button type="submit"
           className="btn btn-outline-primary">Login</button>
       </div>
