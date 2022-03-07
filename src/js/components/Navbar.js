@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../action/auth'
+import { logout } from '../Redux/action/auth'
 
 function Navbar() {
   const navigate = useNavigate();

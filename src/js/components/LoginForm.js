@@ -1,14 +1,20 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import { loginUser } from '../action/auth';
+import { loginUser } from '../Redux/action/auth';
 import { useDispatch, useSelector } from 'react-redux';
+import Loader from '../components/shared/loader'
+// import { auth } from 'firebase';
 const LoginForm = () => {
   const dispatch = useDispatch();
+  const { register, handleSubmit } = useForm();
   const error = useSelector(({ auth }) => auth.login.error)
+  const isChecking = useSelector(({ auth }) => auth.login.isChecking)
   const onSubmit = data => {
     dispatch(loginUser(data));
   }
-  const { register, handleSubmit } = useForm();
+  if (isChecking) {
+    return <Loader />
+  }
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="centered-container-form">
       <div className="header">Welcome here!</div>

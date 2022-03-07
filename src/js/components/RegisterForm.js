@@ -1,16 +1,23 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
-import { registerUser } from '../action/auth'
+import { registerUser } from '../Redux/action/auth'
 
+import Loader from '../components/shared/loader'
 
 function RegisterForm() {
   const dispatch = useDispatch();
   const error = useSelector(({ auth }) => auth.register.error)
+  const isChecking = useSelector(({ auth }) => auth.register.isChecking)
   const { register, handleSubmit } = useForm();
   const onSubmit = registerData => {
     dispatch(registerUser(registerData))
   }
+  if (isChecking) {
+    return <Loader />
+  }
+
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="centered-container-form">
       <div className="header">Create an account</div>

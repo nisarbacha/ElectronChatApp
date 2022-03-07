@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { fetchChats } from "../action/chats";
+import { fetchChats } from "../Redux/action/chats";
 import JoinedChatsList from "../components/JoinedChatsList";
 import AvailableChatsList from "../components/AvailableChatsList";
 import ViewTitle from "../components/shared/ViewTitle";

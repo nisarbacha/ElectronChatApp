@@ -35,9 +35,8 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: $black;
+  align-items: center; 
+  background: rgb(0 0 0 / 0%);
 }
 .loader{
   position: relative;
@@ -140,7 +139,7 @@ body{
 }
 
 .loader-text{
-  color: $white;
+  color: $palette;
   transform: translateY(-2rem);
   letter-spacing: 6px;
   opacity: .2;
