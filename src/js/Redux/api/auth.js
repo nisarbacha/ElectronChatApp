@@ -17,11 +17,15 @@ export async function register({ email, password, username, avatar }) {
   const { user } = await firebase.auth().createUserWithEmailAndPassword(email, password);
   await createUserProfile({ uid: user.uid, username, email, avatar, joinChats: [] })
 }
-export const login = ({ email, password }) =>
-  firebase.auth().signInWithEmailAndPassword(email, password);
+export const login = ({ email, password }) => {
+  debugger
+  return firebase.auth().signInWithEmailAndPassword(email, password);
+}
 
-
-export const logout = () => firebase.auth().signOut();
+export const logout = () => {
+  debugger
+  return firebase.auth().signOut();
+}
 
 
 export const onAuthStateChanges = onAuth => {

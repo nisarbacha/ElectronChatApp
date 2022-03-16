@@ -20,7 +20,7 @@ export const loginUser = formData => dispatch => {
 export const logout = () => dispatch =>
   api
     .logout()
-    .then(_ => dispatch({ type: 'AUTH_LOGOUT_SUCCESS' }))
+    .then(_ => dispatch({ type: 'AUTH_LOGOUT_SUCCESS', user: {} }))
 
 // User Registration and redirect to homePage Api
 export const listerToAuthChanges = () => dispatch => {

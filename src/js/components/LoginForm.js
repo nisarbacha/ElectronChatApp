@@ -27,7 +27,7 @@ const LoginForm = () => {
             type="email"
             className="form-control"
             id="email"
-            // value="nisar@gmail.com"
+            value="nisar@gmail.com"
             name="email"
             aria-describedby="emailHelp" />
           <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
@@ -37,7 +37,7 @@ const LoginForm = () => {
           <input
             {...register('password')}
             type="password"
-            // value="123456"
+            value="123456"
             name="password"
             className="form-control"
             id="password" />

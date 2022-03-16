@@ -3,7 +3,7 @@ const { app, BrowserWindow, Notification, ipcMain } = electron;
 const path = require('path');
 const isDev = !app.isPackaged;
 let mainWindow;
-
+const debugModeOn = true;
 function createWindow() {
 
     mainWindow = new BrowserWindow({
@@ -13,11 +13,17 @@ function createWindow() {
             nodeIntegration: false,
             worldSafeExecuteJavaScript: true,
             contextIsolation: true,
-            preload: path.join(__dirname, 'preload.js')
+            preload: path.join(__dirname, 'preload.js'),
+            devTools: debugModeOn,
         },
+
     })
+    if (debugModeOn) {
+        mainWindow.webContents.toggleDevTools();
+        mainWindow.maximize();
+    }
     mainWindow.loadURL(`file://${__dirname}/index.html`);
-    isDev && mainWindow.webContents.openDevTools();
+
 }
 if (isDev) {
     require('electron-reload')(__dirname, {
